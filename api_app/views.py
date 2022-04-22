@@ -67,7 +67,7 @@ class UserLoginView(APIView):
                 login(request, user)
                 request.session['student'] = username
                 content = {
-                    'user': f'{username} login Successfully...',
+                    'user': f'{username} login Successfully......',
                     'login_student': request.session['student']
 
                 }
