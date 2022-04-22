@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Subjects List</h1>
+<hr>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Courses</th>
+          <th scope="col">Add Assignments</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in data %}
+        <tr>
+            <td><a href="{% url 'view_assigment' i.pk %}" class="btn btn-block btn-primary">{{i.Course}}</a></td>
+            <td><a href="{% url 'add_assigment' i.pk %}" class="btn btn-block btn-success"> Add Assignment</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}
+
+
+
+

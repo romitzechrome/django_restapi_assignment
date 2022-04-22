@@ -1,0 +1,17 @@
+{% extends 'View_Assigment.html' %}
+
+
+{% block content %}
+
+    <form action=" " method="post">
+        {% csrf_token %}
+        <h1>Add an Assigment</h1>
+        <hr>
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Add" class="btn btn-lg btn-success">
+    </form>
+
+
+{% endblock %}

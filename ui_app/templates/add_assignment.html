@@ -1,0 +1,29 @@
+{% extends 'ui_base.html' %}
+
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Add an Assigment</h1>
+        <hr>
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="id_Name">Name:</label></th>
+                    <td><input type="text" name="Name" value="" maxlength="100" required="" id="id_Name"></td>
+                </tr>
+                <tr>
+                    <th><label for="id_Questions">Questions:</label></th>
+                    <td><textarea name="Questions"  cols="40" rows="10" required="" id="id_Questions"></textarea></td>
+                </tr>
+                <tr>
+                    <th><label for="id_Deadline">Deadline:</label></th>
+                    <td><input type="datetime-local" name="Deadline" value="" required="" id="id_Deadline"></td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Add" class="btn btn-lg btn-success">
+    </form>
+
+{% endblock %}

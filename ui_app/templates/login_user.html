@@ -1,0 +1,53 @@
+{% extends 'ui_base.html' %}
+
+
+{% block css %}
+    <style>
+        tr, td ,th{
+            margin: 20%;
+            padding: 5px;
+
+        }
+        input[type=text], input[type=password], input[type=email]{
+          width: 400%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        input[type=submit]{
+            height: 50px;
+            width: 70%;
+            font-size: 20px ;
+            font-weight: bold;
+            margin-left: 15%;
+        }
+    </style>
+ {% endblock %}
+{% block title %} User Login {% endblock %}
+{% block content %}
+
+<form action="{% url 'login_user' %}" method="post">
+
+    <h4 style="color: green">
+        {{ data }}
+    </h4>
+
+    {% csrf_token %}
+    <table>
+        <tbody>
+        <tr>
+            <th><label for="id_Username">Username:</label></th>
+            <td><input type="text" name="Username" value="" maxlength="150" required="" id="id_Username"></td>
+        </tr>
+        <tr>
+            <th><label for="id_Password">Password:</label></th>
+            <td><input type="password" name="Password" value="" required="" id="id_Password"></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Login" class="btn btn-lg btn-success">
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'ui_base.html' %}
+
+{% block content %}
+
+    <h1>{{ data.Name }}</h1>
+    <br>
+    <h3>Deadline : {{ data.Deadline }}</h3>
+    <hr>
+    <h3>Question:
+    {{ data.Questions }}</h3>
+    <hr>
+    <a href="{% url 'add_solution' data.id %}"><input type="submit" value="Add Solution" class="btn btn-lg btn-info"></a>
+
+{% endblock %}

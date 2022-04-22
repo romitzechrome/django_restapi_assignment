@@ -1,0 +1,31 @@
+{% extends 'ui_base.html' %}
+
+{% block content %}
+
+    <h1>{{ assign }}</h1>
+    <br>
+    <h3>Deadline : {{ assign.Deadline }}</h3>
+    <hr>
+    <h3>Question:
+    {{ assign.Questions }}</h3>
+    <hr>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Submission Date</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+         {% for i in data %}
+        <tr>
+            <td>{{ i.title }}</td>
+            <td>{{ i.created_date }}</td>
+            <td>{{ i.user }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

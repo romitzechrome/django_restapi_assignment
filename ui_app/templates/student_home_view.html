@@ -1,0 +1,11 @@
+{% extends 'ui_base.html' %}
+
+{% block content %}
+
+<h1> Subjects List </h1>
+<hr>
+{% for i in data %}
+    <a href="{% url 'stud_assigment_view' i.id %}" class="btn btn-block btn-primary">{{i.Course}}</a>
+{% endfor %}
+
+{% endblock %}

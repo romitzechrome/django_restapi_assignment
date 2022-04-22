@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Online Assigment Submission</title>
+    {% block css %}
+    <style>
+        tr, td ,th{
+            margin: 20%;
+            padding: 5px;
+            all-space-treatment: 20%;
+        }
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+
+        }
+        * {
+          box-sizing: border-box;
+        }
+        .container {
+          padding: 16px;
+          background-color: white;
+        }
+        input[type=text], input[type=password], input[type=email], input[type=file], input[type=number], input[type=datetime-local],textarea{
+          width: 200%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        input[type=submit]{
+            height: 50px;
+            width: 70%;
+            font-size: 20px ;
+            font-weight: bold;
+            margin-left: 15%;
+        }
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        a {
+          color: dodgerblue;
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Online Assigment Submission</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if request.session.teacher %}
+        <li><a href="{% url 'add_course' %}"><span class="glyphicon glyphicon"></span> Add Courses </a></li>
+        <li><a href="{% url 'user_home_page' %}"><span class="glyphicon glyphicon-log-in"></span> Back </a></li>
+        <li><a href="{% url 'ui_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+      {% elif request.session.student %}
+        <li><a href="{% url 'solution_assignment' %}"><span class="glyphicon glyphicon"></span> completed Assignment </a></li>
+        <li><a href="{% url 'show_courses' %}"><span class="glyphicon glyphicon-log-in"></span> Back </a></li>
+        <li><a href="{% url 'ui_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+      {% else %}
+        <li><a href="{% url 'user_register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up  </a></li>
+        <li><a href="{% url 'login_user' %}"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>{% block title %} {% endblock %}</h2>
+  <div class="panel panel-default" >
+    <div class="panel-body" style="alignment: center">
+
+{% block content %}
+
+    <center><h1 style="color: green">Welcome to Online Assignment Submission Portal</h1></center>
+
+
+{% endblock %}
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

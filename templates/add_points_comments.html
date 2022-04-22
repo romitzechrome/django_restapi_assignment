@@ -1,0 +1,14 @@
+{% extends 'teacher_home.html' %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h3>Answered by {{ sol.user }}</h3>
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" VALUE="Submit" class="btn btn-lg btn-success">
+    </form>
+
+{% endblock %}

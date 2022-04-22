@@ -1,0 +1,25 @@
+{% extends 'student_home.html' %}
+
+{% block content %}
+
+ <h1> {{ request.session.user_student }}'s Assigment</h1>
+    <hr>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Assignment's Name</th>
+          <th scope="col">Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in data %}
+        <tr>
+            <td><a href="{% url 'view_details' i.pk %}">{{ i.Name }}</a></td>
+            <td>{{ i.Deadline }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

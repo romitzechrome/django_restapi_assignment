@@ -1,0 +1,24 @@
+{% extends 'ui_base.html' %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Edit a Solution</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="id_title">Title:</label></th>
+                    <td><input type="text" name="title" value="{{ data.title }}" maxlength="100" required="" id="id_title"></td>
+                </tr>
+                <tr>
+                    <th><label for="id_answer">Answer:</label></th>
+                    <td><textarea name="answer" cols="40" rows="10" required="" id="id_answer">{{ data.answer }}</textarea></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <input type="submit" VALUE="submit" class="btn btn-lg btn-success">
+    </form>
+
+{% endblock %}

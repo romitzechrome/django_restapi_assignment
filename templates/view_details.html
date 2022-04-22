@@ -1,0 +1,14 @@
+{% extends 'student_home.html' %}
+
+{% block content %}
+
+    <h1>{{ data.Name }}</h1>
+    <br>
+    <h3>Deadline : {{ data.Deadline }}</h3>
+    <hr>
+    <h3>Question:
+    {{ data.Questions }}</h3>
+    <hr>
+    <a href="{% url 'solution' data.pk %}"><input type="submit" value="Add Solution" class="btn btn-lg btn-info"></a>
+
+{% endblock %}

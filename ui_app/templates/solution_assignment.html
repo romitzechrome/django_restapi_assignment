@@ -1,0 +1,31 @@
+{% extends 'ui_base.html' %}
+
+{% block content %}
+
+    <h1> {{ request.session.student }}'s Assigment</h1>
+    <hr>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Assignment's Name</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Solution</th>
+          <th scope="col">Points</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for solution in data %}
+        <tr>
+            <td><a href="{% url 'edit_solution' solution.id %}">{{ solution.ass }}</a></td>
+            <td>{{ solution.deadline }}</td>
+            <td>{{ solution.title }}</td>
+            <td>{{ solution.points }}</td>
+            <td>{{ solution.comments }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+
+{% endblock %}
